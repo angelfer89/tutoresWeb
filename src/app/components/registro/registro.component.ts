@@ -15,7 +15,8 @@ export class RegistroComponent{
     telefono: null,
     correo: null,
     direccion: null,
-    link: null
+    link: null,
+    comentarios: null
   };
 
   materias: Materia[];
@@ -46,6 +47,8 @@ export class RegistroComponent{
    });
 
    console.log('Comentarios', materiasText);
+
+   this.tutor.comentarios = this.tutor.comentarios + materiasText;
                                   
     /*this.tutorServices.registrarTutor(this.tutor.nombre, this.tutor.apellido, this.tutor.direccion, this.tutor.correo, this.tutor.telefono, this.tutor.link)
                     .subscribe( resp => {

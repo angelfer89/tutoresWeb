@@ -11,7 +11,7 @@ export class TutoresService {
     console.log("Servicio de turores iniciado");
   }
 
-  registrarTutor(nombre: string, apellido: string, direccion: string, correo: string, telefono: number, link: string){
+  registrarTutor(nombre: string, apellido: string, direccion: string, correo: string, telefono: number, link: string, comentarios: string){
 
     const headers = new HttpHeaders({
       'X-API-KEY' : '12345'
@@ -23,7 +23,7 @@ export class TutoresService {
       correo: correo,
       telefono: telefono,
       link: link,
-      comentarios: "angel",
+      comentarios: comentarios,
     };
 
     return this.http.post<any>('http://localhost:8080/tutores/index.php/TutorService/RegistrarTutor/', data, { headers });

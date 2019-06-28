@@ -16,5 +16,6 @@ export interface Tutor {
     correo: string;
     direccion: string;
     link: string;
+    comentarios: string;
   }
   
