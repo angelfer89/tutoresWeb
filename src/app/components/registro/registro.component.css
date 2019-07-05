@@ -1,0 +1,13 @@
+#registro {
+    background: #fff;
+    padding: 20px 0;
+}
+
+.section-header h3 {
+    font-size: 36px;
+    color: #283d50;
+    text-align: center;
+    font-weight: 500;
+    position: relative;
+    padding-bottom: 60px;
+}

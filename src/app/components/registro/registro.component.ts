@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { TutoresService } from 'src/app/services/tutores.service';
 import { Tutor, Materia } from 'src/app/interfaces/interfaces';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-registro',
@@ -29,7 +30,12 @@ export class RegistroComponent{
       });
   }
 
-  registrar() {
+  registrar(forma: NgForm) {
+
+    if(!forma.valid) {
+      return;
+    }
+    
     console.log("Iniciando el registro del usuario");
 
     const materiasSeleccionadas = this.materias
@@ -46,9 +52,9 @@ export class RegistroComponent{
      materiasText = materiasText + " - " + element.idMateria + ". " + element.nombreMateria ;
    });
 
-   console.log('Comentarios', materiasText);
+   let comentarios = this.tutor.comentarios + materiasText;
 
-   this.tutor.comentarios = this.tutor.comentarios + materiasText;
+   console.log('Comentarios', comentarios);
                                   
     /*this.tutorServices.registrarTutor(this.tutor.nombre, this.tutor.apellido, this.tutor.direccion, this.tutor.correo, this.tutor.telefono, this.tutor.link)
                     .subscribe( resp => {

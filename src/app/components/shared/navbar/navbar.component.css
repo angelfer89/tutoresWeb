@@ -1,0 +1,36 @@
+#header {
+    height: 80px;
+    transition: all 0.5s;
+    z-index: 997;
+    transition: all 0.5s;
+    padding: 20px 0;
+    background: #fff;
+    box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.3);
+}
+
+.float-left {
+    float: left!important;
+}
+
+.float-right {
+    float: right!important;
+}
+
+.main-nav, .main-nav * {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.fixed-top {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+}
+
+#header.header-scrolled, #header.header-pages {
+    height: 60px;
+    padding: 10px 0;
+}
