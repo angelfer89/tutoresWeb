@@ -10,6 +10,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './components/home/home.component';
 import { FuncionamientoComponent } from './components/funcionamiento/funcionamiento.component';
 
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faUserPlus, faClock, faDollarSign, faDownload, faSearch, faHandshake } from '@fortawesome/free-solid-svg-icons';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,9 +26,15 @@ import { FuncionamientoComponent } from './components/funcionamiento/funcionamie
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+  constructor() {
+    // Add an icon to the library for convenient access in other components
+    library.add(faUserPlus,faClock, faDollarSign, faDownload, faSearch, faHandshake);
+  }
+}

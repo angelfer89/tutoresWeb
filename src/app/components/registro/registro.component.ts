@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { TutoresService } from 'src/app/services/tutores.service';
 import { Tutor, Materia } from 'src/app/interfaces/interfaces';
 import { NgForm } from '@angular/forms';
+import { IfStmt } from '@angular/compiler';
+
+declare var $: any;
 
 @Component({
   selector: 'app-registro',
@@ -16,9 +19,12 @@ export class RegistroComponent{
     telefono: null,
     correo: null,
     direccion: null,
-    link: null,
+    latitud: null,
+    longitud: null,
     comentarios: null
   };
+
+  respServicio:any = null;
 
   materias: Materia[];
 
@@ -56,9 +62,20 @@ export class RegistroComponent{
 
    console.log('Comentarios', comentarios);
                                   
-    /*this.tutorServices.registrarTutor(this.tutor.nombre, this.tutor.apellido, this.tutor.direccion, this.tutor.correo, this.tutor.telefono, this.tutor.link)
+    this.tutorServices.registrarTutor(this.tutor.nombre, this.tutor.apellido, this.tutor.direccion, this.tutor.correo, this.tutor.telefono, this.tutor.latitud, this.tutor.longitud, comentarios)
                     .subscribe( resp => {
-                    console.log('Registro tutor', resp);
-      });*/
+                    this.respServicio = resp;
+                    console.log("Resp servicio",this.respServicio);
+                    if(resp.codeError)
+                    {
+                      console.error("Ocurrió un error desconocido");
+                      if(resp.codeError == 1062){
+                        $("#videoObtenerMapa").modal('show');
+                      }     
+                    }
+                    else{
+                      $("#videoObtenerMapa").modal('show');
+                    }
+      });
   }
 }

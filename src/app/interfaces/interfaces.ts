@@ -15,7 +15,8 @@ export interface Tutor {
     telefono: number;
     correo: string;
     direccion: string;
-    link: string;
+    latitud: string;
+    longitud: string;
     comentarios: string;
   }
   
