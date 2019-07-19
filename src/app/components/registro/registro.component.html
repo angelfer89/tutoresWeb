@@ -4,6 +4,8 @@
       <h3> Registro </h3>
     </header>
     <form class="needs-validation" (ngSubmit)="registrar(forma)" #forma="ngForm" novalidate>
+      <div class="seccionInterna">
+      <hr>
       <div class="form-row">
         <div class="form-group col-md-6">
           <label>Nombre(s)</label>
@@ -108,27 +110,68 @@
         </div>  
         
         <small class="form-text text-muted">Con la latitud y longitud se harà màs exacta la ubicación</small>     
-
-      <br><br>
-      <div class="form-row">
-        <label>Elija las materias que puede asesorar: </label>
-        <div class="form-check form-check-inline" *ngFor="let materia of materias; let i = index">
-          <input class="form-check-input" type="checkbox" [id]="'inlineCheckbox' + (i + 1)" value="option1" 
-            [(ngModel)]="materia.checked" [ngModelOptions]="{standalone: true}">
-          <label class="form-check-label" [for]="'inlineCheckbox' + (i + 1)"> {{ materia.nombreMateria }}</label>
-        </div>
-    
-        <div class="form-group">
-          <label for="exampleFormControlTextarea1">Comentarios: </label>
-          <textarea class="form-control" id="exampleFormControlTextarea1" name="comentarios"rows="3" [(ngModel)] = "tutor.comentarios"></textarea>
-        </div>
-    
       </div>
-      <button type="submit" class="btn btn-primary">Enviar</button>
+      <br>
+      <div class="seccionInterna">
+      <label>Elija las materias que te interesa asesorar: </label>
+      <br><br>
+      <div class="form-row"> 
+        <div class="col-md-2"> Primaria: </div>
+        <div class="col-md-10">
+          <div class="form-check form-check-inline" *ngFor="let materia of materiasPrimaria; let i = index">
+            <input class="form-check-input" type="checkbox" [id]="'inlineCheckboxP' + (i + 1)" value="option1" 
+              [(ngModel)]="materia.checked" [ngModelOptions]="{standalone: true}">
+            <label class="form-check-label" [for]="'inlineCheckboxP' + (i + 1)"> {{ materia.nombreMateria }}</label>
+          </div>
+        </div> 
+      </div>
+      <hr>
+      <div class="form-row"> 
+        <div class="col-md-2"> Secundaria: </div>
+        <div class="col-md-10">
+          <div class="form-check form-check-inline" *ngFor="let materia of materiasSecundaria; let i = index">
+            <input class="form-check-input" type="checkbox" [id]="'inlineCheckboxS' + (i + 1)" value="option1" 
+              [(ngModel)]="materia.checked" [ngModelOptions]="{standalone: true}">
+            <label class="form-check-label" [for]="'inlineCheckboxS' + (i + 1)"> {{ materia.nombreMateria }}</label>
+          </div>
+        </div> 
+      </div>
+      <hr>
+      <div class="form-row"> 
+        <div class="col-md-2"> Bachillerato: </div>
+        <div class="col-md-10">
+          <div class="form-check form-check-inline" *ngFor="let materia of materiasBachillerato; let i = index">
+            <input class="form-check-input" type="checkbox" [id]="'inlineCheckboxB' + (i + 1)" value="option1" 
+              [(ngModel)]="materia.checked" [ngModelOptions]="{standalone: true}">
+            <label class="form-check-label" [for]="'inlineCheckboxB' + (i + 1)"> {{ materia.nombreMateria }}</label>
+          </div> 
+        </div>
+      </div>
+      <hr>
+      <div class="form-row"> 
+        <div class="col-md-2"> Universidad: </div>
+        <div class="col-md-10">
+          <div class="form-check form-check-inline" *ngFor="let materia of materiasUniversidad; let i = index">
+            <input class="form-check-input" type="checkbox" [id]="'inlineCheckboxU' + (i + 1)" value="option1" 
+              [(ngModel)]="materia.checked" [ngModelOptions]="{standalone: true}">
+            <label class="form-check-label" [for]="'inlineCheckboxU' + (i + 1)"> {{ materia.nombreMateria }}</label>
+          </div> 
+        </div>
+      </div>
+      <hr>
+      <div class="form-group">
+        <label for="exampleFormControlTextarea1">Comentarios: </label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" name="comentarios"rows="3" [(ngModel)] = "tutor.comentarios"></textarea>
+      </div>
+      </div>
+      <br><br>
+      <div class="row col-md-2 offset-md-4 block">
+        <button type="submit" class="btn btn-primary">Enviar</button>
+      </div>
     </form>
   </div>
 
-  <!-- Modal -->
+  <!-- Modal para obtener las coordenadas-->
 <div class="modal fade" id="videoObtenerMapa" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
@@ -146,4 +189,46 @@
     </div>
   </div>
 </div>
+
+  <!-- Modal registro duplicado -->
+  <div class="modal fade" id="registroDuplicado" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <div class="embed-responsive embed-responsive-16by9">
+            <div>La ubicación colocada ya está registrada con este correo electrónico</div>
+            <div><img src="erroe.png"/></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal error inesperado -->
+  <div class="modal fade" id="errorInesperado" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <div class="embed-responsive embed-responsive-16by9">
+            <div>Ocurrió un error inesperado, intenté el registro màs tarde.</div>
+            <div><img src="erroe.png"/></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal registro exitoso-->
+  <div class="modal fade" id="registroExistoso" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <div class="embed-responsive embed-responsive-16by9">
+            <div>El registro se realizò exitosamente, muy pronto recibirás el correo de confirmación</div>
+            <div><img src="erroe.png"/></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>

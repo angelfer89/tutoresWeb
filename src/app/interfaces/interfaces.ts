@@ -5,6 +5,7 @@ export interface RespGetMaterias {
 
 export interface Materia {
     idMateria: number;
+    nivel: string;
     nombreMateria: string;
     checked: boolean;
 }

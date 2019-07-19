@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { TutoresService } from 'src/app/services/tutores.service';
 import { Tutor, Materia } from 'src/app/interfaces/interfaces';
 import { NgForm } from '@angular/forms';
-import { IfStmt } from '@angular/compiler';
 
 declare var $: any;
 
@@ -27,13 +26,33 @@ export class RegistroComponent{
   respServicio:any = null;
 
   materias: Materia[];
+  materiasPrimaria: Materia[];
+  materiasSecundaria: Materia[];
+  materiasBachillerato: Materia[];
+  materiasUniversidad: Materia[];
 
   constructor( private tutorServices : TutoresService) { 
+    
     this.tutorServices.obtenerMaterias()
                     .subscribe( resp => {                  
                     this.materias = resp.materias;
-                    console.log('Materias registradas', this.materias);
-      });
+
+                    this.materiasPrimaria = this.materias.filter( materia => {
+                      return materia.nivel == "Primaria";
+                    });
+
+                    this.materiasSecundaria = this.materias.filter( materia => {
+                      return materia.nivel == "Secundaria";
+                    });
+
+                    this.materiasBachillerato= this.materias.filter( materia => {
+                      return materia.nivel == "Bachillerato";
+                    });
+
+                    this.materiasUniversidad = this.materias.filter( materia => {
+                      return materia.nivel == "Universidad";
+                    });
+             }); 
   }
 
   registrar(forma: NgForm) {
@@ -41,16 +60,11 @@ export class RegistroComponent{
     if(!forma.valid) {
       return;
     }
-    
-    console.log("Iniciando el registro del usuario");
 
     const materiasSeleccionadas = this.materias
                                   .filter ( materia => {
                                     return materia.checked;
                                   });
-
-    
-   console.log('Materias seleccionadas: ', materiasSeleccionadas);
                                   
    let materiasText = "";
 
@@ -59,8 +73,6 @@ export class RegistroComponent{
    });
 
    let comentarios = this.tutor.comentarios + materiasText;
-
-   console.log('Comentarios', comentarios);
                                   
     this.tutorServices.registrarTutor(this.tutor.nombre, this.tutor.apellido, this.tutor.direccion, this.tutor.correo, this.tutor.telefono, this.tutor.latitud, this.tutor.longitud, comentarios)
                     .subscribe( resp => {
@@ -68,13 +80,15 @@ export class RegistroComponent{
                     console.log("Resp servicio",this.respServicio);
                     if(resp.codeError)
                     {
-                      console.error("Ocurrió un error desconocido");
-                      if(resp.codeError == 1062){
-                        $("#videoObtenerMapa").modal('show');
-                      }     
+                      if(resp.codeError == 1062){ // Este error es cuando ya eiste el registro
+                        $("#registroDuplicado").modal('show');
+                      } 
+                      else{
+                        $("#errorInesperado").modal('show');
+                      }    
                     }
                     else{
-                      $("#videoObtenerMapa").modal('show');
+                      $("#registroExitoso").modal('show');
                     }
       });
   }

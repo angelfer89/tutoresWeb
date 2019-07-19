@@ -13,6 +13,7 @@ import { FuncionamientoComponent } from './components/funcionamiento/funcionamie
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faUserPlus, faClock, faDollarSign, faDownload, faSearch, faHandshake } from '@fortawesome/free-solid-svg-icons';
+import { BeneficiosComponent } from './components/beneficios/beneficios.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { faUserPlus, faClock, faDollarSign, faDownload, faSearch, faHandshake } 
     NavbarComponent,
     RegistroComponent,
     HomeComponent,
-    FuncionamientoComponent
+    FuncionamientoComponent,
+    BeneficiosComponent
   ],
   imports: [
     BrowserModule,
