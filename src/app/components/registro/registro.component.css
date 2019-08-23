@@ -1,6 +1,7 @@
 #registro {
-    background: #fff;
+    background: #323E4F;
     padding: 20px 0;
+    color: #ffffff;
 }
 
 .section-header h3 {
@@ -10,6 +11,7 @@
     font-weight: 500;
     position: relative;
     padding-bottom: 60px;
+    color: #ffffff;
 }
 
 .seccionInterna{
@@ -19,4 +21,5 @@
     -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.50);
     -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.50);
     box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.50);
+    color: #ffffff;
 }

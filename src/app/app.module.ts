@@ -4,16 +4,20 @@ import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './components/shared/navbar/navbar.component';
-import { RegistroComponent } from './components/registro/registro.component';
 import { HttpClientModule } from '@angular/common/http';
+
+import { NavbarComponent } from './components/shared/navbar/navbar.component';
+import { FooterComponent } from './components/shared/footer/footer.component';
+import { RegistroComponent } from './components/registro/registro.component';
 import { HomeComponent } from './components/home/home.component';
 import { FuncionamientoComponent } from './components/funcionamiento/funcionamiento.component';
+import { BeneficiosComponent } from './components/beneficios/beneficios.component';
+
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faUserPlus, faClock, faDollarSign, faDownload, faSearch, faHandshake } from '@fortawesome/free-solid-svg-icons';
-import { BeneficiosComponent } from './components/beneficios/beneficios.component';
+
 
 @NgModule({
   declarations: [
@@ -22,7 +26,8 @@ import { BeneficiosComponent } from './components/beneficios/beneficios.componen
     RegistroComponent,
     HomeComponent,
     FuncionamientoComponent,
-    BeneficiosComponent
+    BeneficiosComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

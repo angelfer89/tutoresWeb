@@ -1,11 +1,11 @@
 #beneficios {
-    background: #fff;
+    background: #323E4F;
     padding: 20px 0;
 }
 
 .section-header h3 {
     font-size: 36px;
-    color: #283d50;
+    color: #ffffff;
     text-align: center;
     font-weight: 500;
     position: relative;
@@ -42,7 +42,7 @@
     border-radius: 50%;
     border: 2px solid;
     transition: all 0.3s ease-in-out;
-    background-color: darkorange;
+    background-color: #E18800;
     color:white;
 }
 
@@ -51,15 +51,18 @@
     font-weight: 600;
     margin-bottom: 5px;
     font-size: 18px;
+    color: #ffffff;
 }
 
 .description {
     margin-left: 80px;
     line-height: 24px;
     font-size: 14px;
+    color: #ffffff;
 }
 
 .subtitle {
     padding-bottom: 30px;
     text-align: center;
+    color: #ffffff;
 }
