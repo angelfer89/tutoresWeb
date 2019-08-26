@@ -31,6 +31,14 @@
 }
 
 #header.header-scrolled, #header.header-pages {
-    height: 60px;
+    height: 100px;
     padding: 10px 0;
+}
+
+.logo {
+    float: left;
+}
+
+.logo img {
+    width: 200px;
 }
