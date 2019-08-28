@@ -12,12 +12,11 @@ import { RegistroComponent } from './components/registro/registro.component';
 import { HomeComponent } from './components/home/home.component';
 import { FuncionamientoComponent } from './components/funcionamiento/funcionamiento.component';
 import { BeneficiosComponent } from './components/beneficios/beneficios.component';
-
+import { ContactoComponent } from './components/contacto/contacto.component';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faUserPlus, faClock, faDollarSign, faDownload, faSearch, faHandshake } from '@fortawesome/free-solid-svg-icons';
-
 
 @NgModule({
   declarations: [
@@ -27,7 +26,8 @@ import { faUserPlus, faClock, faDollarSign, faDownload, faSearch, faHandshake } 
     HomeComponent,
     FuncionamientoComponent,
     BeneficiosComponent,
-    FooterComponent
+    FooterComponent,
+    ContactoComponent
   ],
   imports: [
     BrowserModule,

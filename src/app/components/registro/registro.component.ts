@@ -65,6 +65,11 @@ export class RegistroComponent{
                                   .filter ( materia => {
                                     return materia.checked;
                                   });
+
+    if(materiasSeleccionadas.length == 0){
+      $("#seleccionarMaterias").modal('show');
+      return;
+    }
                                   
    let materiasText = "";
 
@@ -91,5 +96,17 @@ export class RegistroComponent{
                       $("#registroExitoso").modal('show');
                     }
       });
+  }
+
+  numericOnly(event): boolean {    
+    let patt = /^([0-9])$/;
+    let result = patt.test(event.key);
+    return result;
+  }
+
+  decimalOnly(event): boolean {    
+    let patt = /^([0-9.])$/;
+    let result = patt.test(event.key);
+    return result;
   }
 }

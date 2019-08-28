@@ -16,12 +16,6 @@
     float: right!important;
 }
 
-.main-nav, .main-nav * {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
 .fixed-top {
     position: fixed;
     top: 0;

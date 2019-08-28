@@ -38,5 +38,20 @@ export class TutoresService {
     return this.http.get<RespGetMaterias>('http://localhost:8080/tutores/index.php/TutorService/ObtenerMaterias/', { headers });
   }
 
+  registrarComentario(nombre: string, correo: string, comentarios: string){
+
+    const headers = new HttpHeaders({
+      'X-API-KEY' : '12345'
+    });
+
+    const data = {
+      nombre: nombre, 
+      correo: correo,
+      comentarios: comentarios,
+    };
+
+    return this.http.post<any>('http://localhost:8080/tutores/index.php/TutorService/RegistrarComentario/', data, { headers });
+  }
+
 
 }

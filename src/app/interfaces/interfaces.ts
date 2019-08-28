@@ -20,4 +20,10 @@ export interface Tutor {
     longitud: string;
     comentarios: string;
   }
+
+export interface Contacto {
+    nombre: string;
+    correo: string;
+    comentarios: string;
+}
   
