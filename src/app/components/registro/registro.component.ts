@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { TutoresService } from 'src/app/services/tutores.service';
 import { Tutor, Materia } from 'src/app/interfaces/interfaces';
 import { NgForm } from '@angular/forms';
+import swal from 'sweetalert';
 
 declare var $: any;
 
@@ -67,7 +68,7 @@ export class RegistroComponent{
                                   });
 
     if(materiasSeleccionadas.length == 0){
-      $("#seleccionarMaterias").modal('show');
+      swal( "Nos falta un detalle" ,  "Debe seleccionar al menos una materia que le interese asesorar" ,  "warning" );
       return;
     }
                                   
@@ -78,7 +79,10 @@ export class RegistroComponent{
    });
 
    let comentarios = this.tutor.comentarios + materiasText;
-                                  
+         
+   
+
+
     this.tutorServices.registrarTutor(this.tutor.nombre, this.tutor.apellido, this.tutor.direccion, this.tutor.correo, this.tutor.telefono, this.tutor.latitud, this.tutor.longitud, comentarios)
                     .subscribe( resp => {
                     this.respServicio = resp;
@@ -86,14 +90,14 @@ export class RegistroComponent{
                     if(resp.codeError)
                     {
                       if(resp.codeError == 1062){ // Este error es cuando ya eiste el registro
-                        $("#registroDuplicado").modal('show');
+                        swal( "Tenemos un problema" ,  "La ubicación colocada ya está registrada con este correo electrónico" ,  "warning" );
                       } 
                       else{
-                        $("#errorInesperado").modal('show');
+                        swal( "Tenemos un problema" ,  "Ocurrió un error inesperado, intente el registro màs tarde." ,  "error" );
                       }    
                     }
                     else{
-                      $("#registroExitoso").modal('show');
+                      swal( "Bienvenido a Thuton" ,  "El registro se realizò exitosamente, muy pronto recibirás el correo de confirmación" ,  "success" );
                     }
       });
   }

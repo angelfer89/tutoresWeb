@@ -17,6 +17,9 @@ export class TutoresService {
       'X-API-KEY' : '12345'
     });
 
+    console.log("Latitud",latitud);
+   console.log("Longitud",longitud);
+
     const data = {
       nombre: nombre, 
       direccion: direccion,
@@ -26,6 +29,9 @@ export class TutoresService {
       longitud: longitud,
       comentarios: comentarios,
     };
+
+    console.log("Latitud",data.latitud);
+   console.log("Longitud",data.longitud);
 
     return this.http.post<any>('http://localhost:8080/tutores/index.php/TutorService/RegistrarTutor/', data, { headers });
   }
