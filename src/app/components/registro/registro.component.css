@@ -23,6 +23,16 @@
     color: #ffffff;
 }
 
-.modal {
-    color: #000;
+#btnRegistrar {
+    color: #ffffff;
+    background-color: #E18800;
+    width: 100%;
+}
+
+#btnLinkMapa {
+    color: #E18800;
+}
+
+#direccionHelp {
+    color: #ffffff;
 }

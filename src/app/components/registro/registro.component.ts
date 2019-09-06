@@ -35,7 +35,8 @@ export class RegistroComponent{
   constructor( private tutorServices : TutoresService) { 
     
     this.tutorServices.obtenerMaterias()
-                    .subscribe( resp => {                  
+                    .subscribe( resp => {
+
                     this.materias = resp.materias;
 
                     this.materiasPrimaria = this.materias.filter( materia => {
@@ -80,9 +81,6 @@ export class RegistroComponent{
 
    let comentarios = this.tutor.comentarios + materiasText;
          
-   
-
-
     this.tutorServices.registrarTutor(this.tutor.nombre, this.tutor.apellido, this.tutor.direccion, this.tutor.correo, this.tutor.telefono, this.tutor.latitud, this.tutor.longitud, comentarios)
                     .subscribe( resp => {
                     this.respServicio = resp;

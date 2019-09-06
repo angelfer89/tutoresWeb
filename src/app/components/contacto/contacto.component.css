@@ -23,6 +23,8 @@
     color: #323E4F;
 }
 
-.modal {
-    color: #000;
+#btnComentario {
+    color: #ffffff;
+    background-color:#323E4F;
+    width: 100%;
 }

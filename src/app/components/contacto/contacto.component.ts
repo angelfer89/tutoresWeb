@@ -25,13 +25,12 @@ export class ContactoComponent implements OnInit {
   ngOnInit() {
   }
 
-  registrarComentarios(forma: NgForm) {
+  registrarComentario(formContacto: NgForm) {
 
-    if(!forma.valid) {
+    if(!formContacto.valid) {
       return;
     }
-                          
-                                  
+                                                         
     this.tutorServices.registrarComentario(this.contacto.nombre, this.contacto.correo , this.contacto.comentarios)
                     .subscribe( resp => {
                     this.respServicio = resp;

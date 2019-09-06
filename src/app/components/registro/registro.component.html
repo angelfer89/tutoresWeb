@@ -73,7 +73,7 @@
                 [(ngModel)]  = "tutor.direccion" 
                 required
                 #direccion="ngModel">
-                <small id="emailHelp" class="form-text text-muted">Esta es la dirección que verán los alumnos </small>
+                <small id="direccionHelp">Esta es la dirección que verán los alumnos </small>
           <div *ngIf="direccion.errors?.required" class="invalid-feedback">
             Este campo es requerido
           </div>
@@ -108,11 +108,11 @@
             </div>                
           </div> 
           <div class="col-md-4">       
-            <button type="button" class="btn btn-link" data-toggle="modal" data-target="#videoObtenerMapa">¿Cómo obtengo la latitud y longitud?</button>
+            <button type="button" class="btn btn-link" data-toggle="modal" data-target="#videoObtenerMapa" id="btnLinkMapa">¿Cómo obtengo la latitud y longitud?</button>
           </div>  
         </div>  
         
-        <small class="form-text text-muted">Con la latitud y longitud se harà màs exacta la ubicación</small>     
+        <small>Con la latitud y longitud se hará más exacta la ubicación</small>     
       </div>
       <br>
       <div class="seccionInterna">
@@ -168,8 +168,8 @@
       </div>
       </div>
       <br><br>
-      <div class="row col-md-2 offset-md-4 block">
-        <button type="submit" class="btn btn-primary">Enviar</button>
+      <div class="row col-md-2 offset-md-10 block">
+        <button type="submit" class="btn" id="btnRegistrar">Enviar</button>
       </div>
     </form>
   </div>
