@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { TutoresService } from 'src/app/services/tutores.service';
 import { Tutor, Materia } from 'src/app/interfaces/interfaces';
 import { NgForm } from '@angular/forms';
-import swal from 'sweetalert';
 
+declare var swal: any;
 declare var $: any;
 
 @Component({
@@ -32,8 +32,7 @@ export class RegistroComponent{
   materiasBachillerato: Materia[];
   materiasUniversidad: Materia[];
 
-  constructor( private tutorServices : TutoresService) { 
-    
+  constructor( private tutorServices: TutoresService) {
     this.tutorServices.obtenerMaterias()
                     .subscribe( resp => {
 
@@ -54,13 +53,13 @@ export class RegistroComponent{
                     this.materiasUniversidad = this.materias.filter( materia => {
                       return materia.nivel == "Universidad";
                     });
-             }); 
+             });
   }
 
   registrar(forma: NgForm) {
 
     if(!forma.valid) {
-      return;
+      return swal( "Nos falta un detalle" ,  "Aún faltan campos por llenar" ,  "warning" );
     }
 
     const materiasSeleccionadas = this.materias
@@ -69,8 +68,7 @@ export class RegistroComponent{
                                   });
 
     if(materiasSeleccionadas.length == 0){
-      swal( "Nos falta un detalle" ,  "Debe seleccionar al menos una materia que le interese asesorar" ,  "warning" );
-      return;
+      return swal( "Nos falta un detalle" ,  "Debe seleccionar al menos una materia que le interese asesorar" ,  "warning" );
     }
                                   
    let materiasText = "";
@@ -84,18 +82,18 @@ export class RegistroComponent{
     this.tutorServices.registrarTutor(this.tutor.nombre, this.tutor.apellido, this.tutor.direccion, this.tutor.correo, this.tutor.telefono, this.tutor.latitud, this.tutor.longitud, comentarios)
                     .subscribe( resp => {
                     this.respServicio = resp;
-                    console.log("Resp servicio",this.respServicio);
+                    console.log("Resp servicio", this.respServicio);
                     if(resp.codeError)
                     {
                       if(resp.codeError == 1062){ // Este error es cuando ya eiste el registro
-                        swal( "Tenemos un problema" ,  "La ubicación colocada ya está registrada con este correo electrónico" ,  "warning" );
+                        return swal( "Tenemos un problema" ,  "La ubicación colocada ya está registrada con este correo electrónico" ,  "warning" );
                       } 
                       else{
-                        swal( "Tenemos un problema" ,  "Ocurrió un error inesperado, intente el registro màs tarde." ,  "error" );
+                       return swal( "Tenemos un problema" ,  "Ocurrió un error inesperado, intente el registro màs tarde." ,  "error" );
                       }    
                     }
                     else{
-                      swal( "Bienvenido a Thuton" ,  "El registro se realizò exitosamente, muy pronto recibirás el correo de confirmación" ,  "success" );
+                      return swal( "Bienvenido a Thuton" ,  "El registro se realizò exitosamente, muy pronto recibirás el correo de confirmación" ,  "success" );
                     }
       });
   }

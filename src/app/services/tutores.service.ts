@@ -17,9 +17,6 @@ export class TutoresService {
       'X-API-KEY' : '12345'
     });
 
-    console.log("Latitud",latitud);
-   console.log("Longitud",longitud);
-
     const data = {
       nombre: nombre, 
       direccion: direccion,
@@ -30,10 +27,7 @@ export class TutoresService {
       comentarios: comentarios,
     };
 
-    console.log("Latitud",data.latitud);
-   console.log("Longitud",data.longitud);
-
-    return this.http.post<any>('http://localhost:8080/tutores/index.php/TutorService/RegistrarTutor/', data, { headers });
+    return this.http.post<any>('http://localhost/tutores/index.php/TutorService/RegistrarTutor/', data, { headers });
   }
 
   obtenerMaterias(){
@@ -41,7 +35,7 @@ export class TutoresService {
       'X-API-KEY' : '12345'
     });
 
-    return this.http.get<RespGetMaterias>('http://localhost:8080/tutores/index.php/TutorService/ObtenerMaterias/', { headers });
+    return this.http.get<RespGetMaterias>('http://localhost/tutores/index.php/TutorService/ObtenerMaterias/', { headers });
   }
 
   registrarComentario(nombre: string, correo: string, comentarios: string){
@@ -56,7 +50,7 @@ export class TutoresService {
       comentarios: comentarios,
     };
 
-    return this.http.post<any>('http://localhost:8080/tutores/index.php/TutorService/RegistrarComentario/', data, { headers });
+    return this.http.post<any>('http://localhost/tutores/index.php/TutorService/RegistrarComentario/', data, { headers });
   }
 
 
