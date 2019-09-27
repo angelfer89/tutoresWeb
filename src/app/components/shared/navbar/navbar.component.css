@@ -36,3 +36,8 @@
 .logo img {
     width: 200px;
 }
+
+button {
+    border: none;
+    padding: 0%;
+}
