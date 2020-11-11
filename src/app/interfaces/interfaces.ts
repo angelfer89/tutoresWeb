@@ -4,7 +4,7 @@ export interface RespGetMaterias {
 }
 
 export interface Materia {
-    idMateria: number;
+    idMateria: string;
     nivel: string;
     nombreMateria: string;
     checked: boolean;

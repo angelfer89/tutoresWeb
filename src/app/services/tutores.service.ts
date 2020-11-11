@@ -30,6 +30,20 @@ export class TutoresService {
     return this.http.post<any>('http://localhost/tutores/index.php/TutorService/RegistrarTutor/', data, { headers });
   }
 
+  registrarMateriaSeleccionada(idTutor: number, idMateria: string){
+
+    const headers = new HttpHeaders({
+      'X-API-KEY' : '12345'
+    });
+
+    const data = {
+      idTutor: idTutor, 
+      idMateria: idMateria,
+    };
+
+    return this.http.post<any>('http://localhost/tutores/index.php/TutorService/RegistrarMateriaSeleccionada/', data, { headers });
+  }
+
   obtenerMaterias(){
     const headers = new HttpHeaders({
       'X-API-KEY' : '12345'

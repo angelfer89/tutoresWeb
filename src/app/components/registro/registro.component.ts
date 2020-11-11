@@ -67,7 +67,7 @@ export class RegistroComponent{
                                     return materia.checked;
                                   });
 
-    if(materiasSeleccionadas.length == 0){
+    if(materiasSeleccionadas.length == 0 && (this.tutor.comentarios == null || this.tutor.comentarios.trim().length == 0) ){
       return swal( "Nos falta un detalle" ,  "Debe seleccionar al menos una materia que le interese asesorar" ,  "warning" );
     }
                                   
@@ -82,7 +82,7 @@ export class RegistroComponent{
     this.tutorServices.registrarTutor(this.tutor.nombre, this.tutor.apellido, this.tutor.direccion, this.tutor.correo, this.tutor.telefono, this.tutor.latitud, this.tutor.longitud, comentarios)
                     .subscribe( resp => {
                     this.respServicio = resp;
-                    console.log("Resp servicio", this.respServicio);
+                   
                     if(resp.codeError)
                     {
                       if(resp.codeError == 1062){ // Este error es cuando ya eiste el registro
@@ -93,9 +93,19 @@ export class RegistroComponent{
                       }    
                     }
                     else{
+                      console.log("Respuesta servicio: " + this.respServicio.insertado);
+
+                      materiasSeleccionadas.forEach(element => {
+
+                        this.tutorServices.registrarMateriaSeleccionada(this.respServicio.insertado, element.idMateria)
+                                    .subscribe();
+                      });
+
                       return swal( "Bienvenido a Thuton" ,  "El registro se realizò exitosamente, muy pronto recibirás el correo de confirmación" ,  "success" );
                     }
       });
+
+      
   }
 
   numericOnly(event): boolean {    
