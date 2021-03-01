@@ -14,7 +14,7 @@ export class TutoresService {
   registrarTutor(nombre: string, apellido: string, direccion: string, correo: string, telefono: number, latitud: string, longitud: string, comentarios: string){
 
     const headers = new HttpHeaders({
-      'X-API-KEY' : '12345'
+      'THUTON-API-KEY' : 'APPTHUTON2020'
     });
 
     const data = {
@@ -27,13 +27,13 @@ export class TutoresService {
       comentarios: comentarios,
     };
 
-    return this.http.post<any>('http://localhost/tutores/index.php/TutorService/RegistrarTutor/', data, { headers });
+    return this.http.post<any>('http://api.thuton.com/index.php/TutorService/RegistrarTutor/', data, { headers });
   }
 
   registrarMateriaSeleccionada(idTutor: number, idMateria: string){
 
     const headers = new HttpHeaders({
-      'X-API-KEY' : '12345'
+      'THUTON-API-KEY' : 'APPTHUTON2020'
     });
 
     const data = {
@@ -41,21 +41,21 @@ export class TutoresService {
       idMateria: idMateria,
     };
 
-    return this.http.post<any>('http://localhost/tutores/index.php/TutorService/RegistrarMateriaSeleccionada/', data, { headers });
+    return this.http.post<any>('http://api.thuton.com/index.php/TutorService/RegistrarMateriaSeleccionada/', data, { headers });
   }
 
   obtenerMaterias(){
     const headers = new HttpHeaders({
-      'X-API-KEY' : '12345'
+      'THUTON-API-KEY' : 'APPTHUTON2020'
     });
 
-    return this.http.get<RespGetMaterias>('http://localhost/tutores/index.php/TutorService/ObtenerMaterias/', { headers });
+    return this.http.get<RespGetMaterias>('http://api.thuton.com/index.php/TutorService/ObtenerMaterias/', { headers });
   }
 
   registrarComentario(nombre: string, correo: string, comentarios: string){
 
     const headers = new HttpHeaders({
-      'X-API-KEY' : '12345'
+      'THUTON-API-KEY' : 'APPTHUTON2020'
     });
 
     const data = {
@@ -64,7 +64,7 @@ export class TutoresService {
       comentarios: comentarios,
     };
 
-    return this.http.post<any>('http://localhost/tutores/index.php/TutorService/RegistrarComentario/', data, { headers });
+    return this.http.post<any>('http://api.thuton.com/index.php/TutorService/RegistrarComentario/', data, { headers });
   }
 
 

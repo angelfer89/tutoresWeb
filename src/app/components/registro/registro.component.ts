@@ -82,7 +82,7 @@ export class RegistroComponent{
     this.tutorServices.registrarTutor(this.tutor.nombre, this.tutor.apellido, this.tutor.direccion, this.tutor.correo, this.tutor.telefono, this.tutor.latitud, this.tutor.longitud, comentarios)
                     .subscribe( resp => {
                     this.respServicio = resp;
-                   
+                  
                     if(resp.codeError)
                     {
                       if(resp.codeError == 1062){ // Este error es cuando ya eiste el registro

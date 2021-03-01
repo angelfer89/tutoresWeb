@@ -43,6 +43,7 @@
                  [(ngModel)] = "tutor.telefono"
                  required
                  #telefono="ngModel">
+                 <small id="direccionHelp">Debe incluir el codido del pais y el numero a 10 digitos </small>
           <div *ngIf="telefono.errors?.required" class="invalid-feedback">
             Este campo es requerido
           </div>
@@ -163,13 +164,13 @@
       </div>
       <hr>
       <div class="form-group">
-        <label for="exampleFormControlTextarea1">Si no esta la materia que buscas, o hace falta alguna, aqui la puedes agregar: </label>
+        <label for="exampleFormControlTextarea1">Si no esta la materia que quieres asesorar, aqui la puedes agregar: </label>
         <textarea class="form-control" id="exampleFormControlTextarea1" name="comentarios"rows="3" [(ngModel)] = "tutor.comentarios"></textarea>
       </div>
       </div>
       <br><br>
       <div class="row col-md-2 offset-md-10 block">
-        <button type="submit" class="btn" id="btnRegistrar">Enviar</button>
+        <button type="submit" class="btn" id="btnRegistrar">Registrarse</button>
       </div>
     </form>
   </div>
